@@ -13,7 +13,7 @@ filepath="./maps/${filename}"
 # Compile new map
 ${minetestmapper} -i ${worldpath} -o ${filepath}
 # Update symbolic link
-ln -sf ${filepath} ${symbolpath}
+ln -r -sf ${filepath} ${symbolpath}
 # Update git repository
 git add .
 git commit -a -m "Automatic update per ${date}"
