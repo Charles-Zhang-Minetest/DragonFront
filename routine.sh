@@ -14,7 +14,11 @@ filepath="./maps/${filename}"
 ${minetestmapper} -i ${worldpath} -o ${filepath}
 # Update symbolic link
 ln -r -sf ${filepath} ${symbolpath}
+# Update webpage
+printf -v date2 '%(%Y-%m-%d)T' -1
+sed -i -e "s/Update per: [[:digit:]][[:digit:]][[:digit:]][[:digit:]]-[[:digit:]][[:digit:]]-[[:digit:]][[:digit:]]/Update per: ${date2}/g" index.html
 # Update git repository
 git add .
 git commit -a -m "Automatic update per ${date}"
 git push
+
