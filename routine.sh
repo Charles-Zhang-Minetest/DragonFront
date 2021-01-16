@@ -11,7 +11,7 @@ printf -v date '%(%Y%m%d)T' -1
 filename="${date}.png"
 filepath="./maps/${filename}"
 # Compile new map
-${minetestmapper} -i ${worldpath} -o ${filepath}
+${minetestmapper} -i ${worldpath} -o ${filepath} --scales tr --drawalpha --draworigin --drawplayers --drawscale
 # Update symbolic link
 ln -r -sf ${filepath} ${symbolpath}
 # Update webpage
